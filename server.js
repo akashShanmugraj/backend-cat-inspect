@@ -9,7 +9,8 @@ const tireRoutes = require("./routes/tireroutes.js");
 const engineRoutes = require("./routes/engineroutes.js");
 const headerRoutes = require("./routes/headerroutes.js");
 const exteriorRoutes = require("./routes/exteriorroutes.js");
-
+const gcsRoutes = require("./routes/cloudstorageroutes.js");
+var fileupload = require('express-fileupload');
 const app = express();
 
 //dotenv config
@@ -39,7 +40,7 @@ app.get("/help", (req, res) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(fileupload());
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server is listening on http://localhost:${process.env.PORT}`);
@@ -51,6 +52,21 @@ app.use("/api/tire", tireRoutes);
 app.use("/api/engine", engineRoutes);
 app.use("/api/header", headerRoutes);
 app.use("/api/exterior", exteriorRoutes);
+app.use("/api/upload", gcsRoutes);
+
+app.post("/testupload", function(req, res)
+{
+    var file;
+
+    if(!req.files)
+    {
+        res.send("File was not found");
+        return;
+    }
+
+    file = req.files.FormFieldName;  // here is the field name of the form
+    res.send(`File ${file.name} Uploaded`);
+});
 
 app.use("/api/reqinfo", (req, res) => {
   const requestObject = {
