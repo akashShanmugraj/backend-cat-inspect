@@ -1,0 +1,27 @@
+{
+    "Profile": {
+      "Name": "John Doe",
+      "Age": 30,
+      "Skills": {
+        "Programming": ["JavaScript", "Python", "C#"],
+        "Databases": ["MySQL", "MongoDB"]
+      }
+    },
+    "Experience": [
+      {
+        "Company": "Tech Solutions",
+        "Role": "Software Developer",
+        "Years": 3
+      },
+      {
+        "Company": "Innovatech",
+        "Role": "Senior Developer",
+        "Years": 2
+      }
+    ],
+    "Education": {
+      "University": "State University",
+      "Degree": "Computer Science",
+      "GraduationYear": 2015
+    }
+  }
