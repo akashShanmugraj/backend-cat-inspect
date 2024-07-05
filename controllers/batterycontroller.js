@@ -10,6 +10,7 @@ const getBatteries = asyncHandler(async (req, res) => {
 
 const postBattery = asyncHandler(async (req, res) => {
   const battery = new Battery({
+    inspectionId: req.body.inspectionId,
     batteryMake: req.body.batteryMake,
     batteryReplacementDate: req.body.batteryReplacementDate,
     batteryVoltage: req.body.batteryVoltage,

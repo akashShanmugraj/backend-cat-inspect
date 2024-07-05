@@ -34,6 +34,7 @@ GET /api/brakes/get
 POST /api/brakes/post
 
 const brakes = new Brakes({
+    inspectionId: req.body.inspectionId,
     brakeMake: req.body.brakeMake,
     brakeReplacementDate: req.body.brakeReplacementDate,
     brakePadThickness: req.body.brakePadThickness,
@@ -53,6 +54,7 @@ GET /api/battery/get
 POST /api/battery/post
 
 const battery = new Battery({
+    inspectionId: req.body.inspectionId,
     batteryMake: req.body.batteryMake,
     batteryReplacementDate: req.body.batteryReplacementDate,
     batteryVoltage: req.body.batteryVoltage,
@@ -76,6 +78,7 @@ GET /api/engine/get
 POST /api/engine/post
 
 const engine = new Engine({
+    inspectionId: req.body.inspectionId,
     engineMake: req.body.engineMake,
     engineModel: req.body.engineModel,
     engineSerialNumber: req.body.engineSerialNumber,
@@ -97,6 +100,7 @@ GET /api/exterior/get
 POST /api/exterior/post
 
 const exterior = new Exterior({
+    inspectionId: req.body.inspectionId,
     exteriorMake: req.body.exteriorMake,
     exteriorReplacementDate: req.body.exteriorReplacementDate,
     exteriorOverallSummary: req.body.exteriorOverallSummary,
@@ -116,10 +120,19 @@ GET /api/header/get
 POST /api/header/post
 
 const header = new Header({
-    headerMake: req.body.headerMake,
-    headerReplacementDate: req.body.headerReplacementDate,
-    headerOverallSummary: req.body.headerOverallSummary,
-    attachedImages: req.body.attachedImages,
+    truckSerialNumber: req.body.truckSerialNumber,
+    truckModel: req.body.truckModel,
+    inspectionId: req.body.inspectionId,
+    inspectorName: req.body.inspectorName,
+    inspectionEmployeeId: req.body.inspectionEmployeeId,
+    inspectionDate: req.body.inspectionDate,
+    inspectionTime: req.body.inspectionTime,
+    inspectionLocation: req.body.inspectionLocation,
+    inspectionGeocoordinates: req.body.inspectionGeocoordinates,
+    serviceMeterHours: req.body.serviceMeterHours,
+    inspectorSignature: req.body.inspectorSignature,
+    companyName: req.body.companyName,
+    catCustomerId: req.body.catCustomerId,
 });
 ```
 
@@ -133,6 +146,7 @@ GET /api/tire/get
 POST /api/tire/post
 
 const tire = new Tire({
+    inspectionId: req.body.inspectionId,
     tireMake: req.body.tireMake,
     tireModel: req.body.tireModel,
     tireSerialNumber: req.body.tireSerialNumber,

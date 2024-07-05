@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const tireSchema = new mongoose.Schema({
+    inspectionId:{
+        type: String,
+        required: true
+    },
     tirePressureLeftFront:{
         type: Number,
         required: true

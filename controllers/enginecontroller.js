@@ -11,13 +11,14 @@ const getEngines = asyncHandler(async (req, res) => {
 
 const postEngine = asyncHandler(async (req, res) => {
     const engine = new Engine({
-        engineMake: req.body.engineMake,
-        engineModel: req.body.engineModel,
-        engineSerialNumber: req.body.engineSerialNumber,
-        engineReplacementDate: req.body.engineReplacementDate,
-        engineHours: req.body.engineHours,
-        engineOverallSummary: req.body.engineOverallSummary,
-        attachedImages: req.body.attachedImages,
+      inspectionId: req.body.inspectionId,
+      engineMake: req.body.engineMake,
+      engineModel: req.body.engineModel,
+      engineSerialNumber: req.body.engineSerialNumber,
+      engineReplacementDate: req.body.engineReplacementDate,
+      engineHours: req.body.engineHours,
+      engineOverallSummary: req.body.engineOverallSummary,
+      attachedImages: req.body.attachedImages,
     });
     const createdEngine = await engine.save();
     res.status(201).json(createdEngine);

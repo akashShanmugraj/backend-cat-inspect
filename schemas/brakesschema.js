@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const brakesSchema = new mongoose.Schema({
+    inspectionId:{
+        type: String,
+        required: true
+    },
     brakeFluidLevel:{
         type: String,
         required: true,

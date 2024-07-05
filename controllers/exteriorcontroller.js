@@ -11,10 +11,11 @@ const getExteriors = asyncHandler(async (req, res) => {
 
 const postExterior = asyncHandler(async (req, res) => {
     const exterior = new Exterior({
-        exteriorMake: req.body.exteriorMake,
-        exteriorReplacementDate: req.body.exteriorReplacementDate,
-        exteriorOverallSummary: req.body.exteriorOverallSummary,
-        attachedImages: req.body.attachedImages,
+      inspectionId: req.body.inspectionId,
+      exteriorMake: req.body.exteriorMake,
+      exteriorReplacementDate: req.body.exteriorReplacementDate,
+      exteriorOverallSummary: req.body.exteriorOverallSummary,
+      attachedImages: req.body.attachedImages,
     });
     const createdExterior = await exterior.save();
     res.status(201).json(createdExterior);

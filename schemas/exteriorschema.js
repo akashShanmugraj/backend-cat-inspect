@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const exteriorSchema = new mongoose.Schema({
+    inspectionId:{
+        type: String,
+        required: true
+    },
     rustedExterior:{
         type: String,
         required: true,

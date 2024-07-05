@@ -11,12 +11,13 @@ const getTires = asyncHandler(async (req, res) => {
 
 const postTire = asyncHandler(async (req, res) => {
     const tire = new Tire({
-        tireMake: req.body.tireMake,
-        tireModel: req.body.tireModel,
-        tireSerialNumber: req.body.tireSerialNumber,
-        tireReplacementDate: req.body.tireReplacementDate,
-        tireOverallSummary: req.body.tireOverallSummary,
-        attachedImages: req.body.attachedImages,
+      inspectionId: req.body.inspectionId,
+      tireMake: req.body.tireMake,
+      tireModel: req.body.tireModel,
+      tireSerialNumber: req.body.tireSerialNumber,
+      tireReplacementDate: req.body.tireReplacementDate,
+      tireOverallSummary: req.body.tireOverallSummary,
+      attachedImages: req.body.attachedImages,
     });
     const createdTire = await tire.save();
     res.status(201).json(createdTire);

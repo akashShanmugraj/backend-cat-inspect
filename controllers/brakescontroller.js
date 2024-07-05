@@ -10,12 +10,13 @@ const getBrakes = asyncHandler(async (req, res) => {
 
 const postBrakes = asyncHandler(async (req, res) => {
     const brakes = new Brakes({
-        brakeMake: req.body.brakeMake,
-        brakeReplacementDate: req.body.brakeReplacementDate,
-        brakePadThickness: req.body.brakePadThickness,
-        brakeDiscThickness: req.body.brakeDiscThickness,
-        brakeOverallSummary: req.body.brakeOverallSummary,
-        attachedImages: req.body.attachedImages,
+      inspectionId: req.body.inspectionId,
+      brakeMake: req.body.brakeMake,
+      brakeReplacementDate: req.body.brakeReplacementDate,
+      brakePadThickness: req.body.brakePadThickness,
+      brakeDiscThickness: req.body.brakeDiscThickness,
+      brakeOverallSummary: req.body.brakeOverallSummary,
+      attachedImages: req.body.attachedImages,
     });
     const createdBrakes = await brakes.save();
     res.status(201).json(createdBrakes);

@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const engineSchema = new mongoose.Schema({
+    inspectionId:{
+        type: String,
+        required: true
+    },
     rustedEngine:{
         type: String,
         required: true,
