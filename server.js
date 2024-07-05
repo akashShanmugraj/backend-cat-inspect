@@ -11,6 +11,7 @@ const headerRoutes = require("./routes/headerroutes.js");
 const exteriorRoutes = require("./routes/exteriorroutes.js");
 const gcsRoutes = require("./routes/cloudstorageroutes.js");
 const sampleInfoRoutes = require("./routes/sampleinforoutes.js");
+const reportRoutes = require("./routes/reportroutes.js");
 
 var fileupload = require('express-fileupload');
 const app = express();
@@ -56,6 +57,7 @@ app.use("/api/header", headerRoutes);
 app.use("/api/exterior", exteriorRoutes);
 app.use("/api/upload", gcsRoutes);
 app.use("/api/sampleinfo", sampleInfoRoutes);
+app.use("/api/report", reportRoutes);
 
 app.post("/testupload", function(req, res)
 {

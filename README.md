@@ -200,3 +200,16 @@ const checkinspectionid = asyncHandler(async (req, res) => {
 });
 
 ```
+
+## Report Generation Routes
+
+```js
+app.use("/api/report", reportRoutes);
+```
+
+```
+router.get("/request", requestreport);
+
+const requestreport = async (req, res) => {
+  const inspectionid = req.qeury.inspectionid;
+```
