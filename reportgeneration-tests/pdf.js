@@ -16,7 +16,7 @@ function jsonToMarkdown(jsonObject) {
 }
 
 // Read JSON file and convert
-fs.readFile('data.json', 'utf8', (err, data) => {
+fs.readFile('output.json', 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
