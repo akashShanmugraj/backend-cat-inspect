@@ -12,11 +12,14 @@ const getEngines = asyncHandler(async (req, res) => {
 const postEngine = asyncHandler(async (req, res) => {
     const engine = new Engine({
       inspectionId: req.body.inspectionId,
-      engineMake: req.body.engineMake,
-      engineModel: req.body.engineModel,
-      engineSerialNumber: req.body.engineSerialNumber,
-      engineReplacementDate: req.body.engineReplacementDate,
-      engineHours: req.body.engineHours,
+      rustedEngine: req.body.rustedEngine,
+      dentedEngine: req.body.dentedEngine,
+      damagedEngine: req.body.damagedEngine,
+      engineOilCondition: req.body.engineOilCondition,
+      engineOilColor: req.body.engineOilColor,
+      brakeFluidCondition: req.body.brakeFluidCondition,
+      brakeFluidColor: req.body.brakeFluidColor,
+      oilLeakInEngine: req.body.oilLeakInEngine,
       engineOverallSummary: req.body.engineOverallSummary,
       attachedImages: req.body.attachedImages,
     });

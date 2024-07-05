@@ -12,8 +12,10 @@ const getExteriors = asyncHandler(async (req, res) => {
 const postExterior = asyncHandler(async (req, res) => {
     const exterior = new Exterior({
       inspectionId: req.body.inspectionId,
-      exteriorMake: req.body.exteriorMake,
-      exteriorReplacementDate: req.body.exteriorReplacementDate,
+      rustedExterior: req.body.rustedExterior,
+      dentedExterior: req.body.dentedExterior,
+      damagedExterior: req.body.damagedExterior,
+      oilLeakInSuspension: req.body.oilLeakInSuspension,
       exteriorOverallSummary: req.body.exteriorOverallSummary,
       attachedImages: req.body.attachedImages,
     });

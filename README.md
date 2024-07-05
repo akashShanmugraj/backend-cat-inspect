@@ -34,13 +34,13 @@ GET /api/brakes/get
 POST /api/brakes/post
 
 const brakes = new Brakes({
-    inspectionId: req.body.inspectionId,
-    brakeMake: req.body.brakeMake,
-    brakeReplacementDate: req.body.brakeReplacementDate,
-    brakePadThickness: req.body.brakePadThickness,
-    brakeDiscThickness: req.body.brakeDiscThickness,
-    brakeOverallSummary: req.body.brakeOverallSummary,
-    attachedImages: req.body.attachedImages,
+  inspectionId: req.body.inspectionId,
+  brakeFluidLevel: req.body.brakeFluidLevel,
+  brakeConditionFront: req.body.brakeConditionFront,
+  brakeConditionRear: req.body.brakeConditionRear,
+  emergencyBrake: req.body.emergencyBrake,
+  brakeOverallSummary: req.body.brakeOverallSummary,
+  attachedImages: req.body.attachedImages
 });
 ```
 
@@ -78,14 +78,17 @@ GET /api/engine/get
 POST /api/engine/post
 
 const engine = new Engine({
-    inspectionId: req.body.inspectionId,
-    engineMake: req.body.engineMake,
-    engineModel: req.body.engineModel,
-    engineSerialNumber: req.body.engineSerialNumber,
-    engineReplacementDate: req.body.engineReplacementDate,
-    engineHours: req.body.engineHours,
-    engineOverallSummary: req.body.engineOverallSummary,
-    attachedImages: req.body.attachedImages,
+  inspectionId: req.body.inspectionId,
+  rustedEngine: req.body.rustedEngine,
+  dentedEngine: req.body.dentedEngine,
+  damagedEngine: req.body.damagedEngine,
+  engineOilCondition: req.body.engineOilCondition,
+  engineOilColor: req.body.engineOilColor,
+  brakeFluidCondition: req.body.brakeFluidCondition,
+  brakeFluidColor: req.body.brakeFluidColor,
+  oilLeakInEngine: req.body.oilLeakInEngine,
+  engineOverallSummary: req.body.engineOverallSummary,
+  attachedImages: req.body.attachedImages,
 });
 
 ```
@@ -97,15 +100,16 @@ GET /api/exterior/get
 ```
 
 ```
-POST /api/exterior/post
-
 const exterior = new Exterior({
-    inspectionId: req.body.inspectionId,
-    exteriorMake: req.body.exteriorMake,
-    exteriorReplacementDate: req.body.exteriorReplacementDate,
-    exteriorOverallSummary: req.body.exteriorOverallSummary,
-    attachedImages: req.body.attachedImages,
+  inspectionId: req.body.inspectionId,
+  rustedExterior: req.body.rustedExterior,
+  dentedExterior: req.body.dentedExterior,
+  damagedExterior: req.body.damagedExterior,
+  oilLeakInSuspension: req.body.oilLeakInSuspension,
+  exteriorOverallSummary: req.body.exteriorOverallSummary,
+  attachedImages: req.body.attachedImages,
 });
+
 ```
 
 
@@ -146,12 +150,16 @@ GET /api/tire/get
 POST /api/tire/post
 
 const tire = new Tire({
-    inspectionId: req.body.inspectionId,
-    tireMake: req.body.tireMake,
-    tireModel: req.body.tireModel,
-    tireSerialNumber: req.body.tireSerialNumber,
-    tireReplacementDate: req.body.tireReplacementDate,
-    tireOverallSummary: req.body.tireOverallSummary,
-    attachedImages: req.body.attachedImages,
+  inspectionId: req.body.inspectionId,
+  tirePressureLeftFront: req.body.tirePressureLeftFront,
+  tirePressureRightFront: req.body.tirePressureRightFront,
+  tireConditionLeftFront: req.body.tireConditionLeftFront,
+  tireConditionRightFront: req.body.tireConditionRightFront,
+  tirePressureLeftRear: req.body.tirePressureLeftRear,
+  tirePressureRightRear: req.body.tirePressureRightRear,
+  tireConditionLeftRear: req.body.tireConditionLeftRear,
+  tireConditionRightRear: req.body.tireConditionRightRear,
+  tireOverallSummary: req.body.tireOverallSummary,
+  attachedImages: req.body.attachedImages
 });
 ```
