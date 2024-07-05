@@ -4,6 +4,7 @@ const asyncHandler = require("express-async-handler");
 const Customer = require("../schemas/customerschema");
 const Inspector = require("../schemas/inspectorschema");
 const Truck = require("../schemas/truckschema");
+const Header = require("../schemas/headerschema");
 
 // get company name give cat-customer-id
 const getCompanyName = asyncHandler(async (req, res) => {
@@ -38,4 +39,13 @@ const getTruckModel = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getCompanyName, getInspectorName, getTruckModel };
+const checkinspectionid = asyncHandler(async (req, res) => {
+  const header = await Header.findOne({ "inspectionId" : req.query.inspection_id });
+  if (header) {
+    res.status(200).json({ "exists": "true" });
+  } else {
+    res.status(200).json({ "exists": "false" });
+  }
+});
+
+module.exports = { getCompanyName, getInspectorName, getTruckModel, checkinspectionid };

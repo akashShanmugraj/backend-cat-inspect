@@ -163,3 +163,40 @@ const tire = new Tire({
   attachedImages: req.body.attachedImages
 });
 ```
+
+## Sample Routes
+
+```
+app.use("/api/sampleinfo", sampleInfoRoutes);
+```
+
+```
+router.route("/companyname").get(getCompanyName);
+router.route("/inspectorname").get(getInspectorName);
+router.route("/truckmodel").get(getTruckModel);
+router.route("/checkinspectionid").get(checkinspectionid);
+```
+
+```
+// get company name give cat-customer-id
+const getCompanyName = asyncHandler(async (req, res) => {
+  const customer = await Customer.findOne({ "cat_customer_id" : req.query.customer_id });
+```
+
+```
+// get name of the inspector given inspector id
+const getInspectorName = asyncHandler(async (req, res) => {
+  const inspector = await Inspector.findOne({ "inspectorid": req.query.inspector_id });
+```
+
+```
+const getTruckModel = asyncHandler(async (req, res) => {
+  const truck = await Truck.findOne({ "truck-serial-number" : req.query.truck_id });
+```
+
+```
+const checkinspectionid = asyncHandler(async (req, res) => {
+  const header = await Header.findOne({ "inspectionId" : req.query.inspection_id });
+});
+
+```
