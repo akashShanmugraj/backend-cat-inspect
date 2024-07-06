@@ -54,3 +54,6 @@ const headerSchema = new mongoose.Schema({
         required: true
     },
 });
+
+const Header = mongoose.model("Header", headerSchema);
+module.exports = Header;
