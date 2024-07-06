@@ -34,7 +34,7 @@ const headerSchema = new mongoose.Schema({
         required: true
     },
     inspectionGeocoordinates:{
-        type: [Number],
+        type: [String],
         required: true
     },
     serviceMeterHours:{
