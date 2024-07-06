@@ -102,25 +102,3 @@ app.use("/api/reqinfo", (req, res) => {
   res.send(requestObject);
   }
 )
-
-
-const corsOptions = {
-  origin: 'http://localhost:3000', // Allow only this origin
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow specific HTTP methods
- allowedHeaders: 'Content-Type,Authorization', // Allow specific headers
- credentials: true // Allow credentials (cookies, authorization headers, etc.)
-};
-
-// Use CORS middleware with the specified options
-app.use(cors(corsOptions));
-
-app.use(express.json());
-
-app.post('/api/tire/post', (req, res) => {
-  res.status(204).send();
-});
-
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
