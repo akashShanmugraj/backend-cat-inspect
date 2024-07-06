@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const brakeRoutes = require("./routes/brakesroutes.js");
 const batteryRoutes = require("./routes/batteryroutes.js");
@@ -11,7 +12,7 @@ const headerRoutes = require("./routes/headerroutes.js");
 const exteriorRoutes = require("./routes/exteriorroutes.js");
 const gcsRoutes = require("./routes/cloudstorageroutes.js");
 const sampleInfoRoutes = require("./routes/sampleinforoutes.js");
-const reportRoutes = require("./routes/reportroutes.js");
+const reportRoutes = require("./routes/reportroute.js");
 
 var fileupload = require('express-fileupload');
 const app = express();
@@ -33,6 +34,12 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 app.use(morgan("dev"));
 
+app.use(
+    cors({
+      origin: "http://localhost:6969",
+    })
+  );
+
 app.get("/", (req, res) => {
   res.send("API Working");
 });
@@ -45,7 +52,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileupload());
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is listening on http://localhost:${process.env.PORT}`);
   });
 

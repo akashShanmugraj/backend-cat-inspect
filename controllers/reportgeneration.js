@@ -5,8 +5,8 @@ const Header = require("../schemas/headerschema");
 const Battery = require("../schemas/batteryschema");
 const Brakes = require("../schemas/brakesschema");
 const Engine = require("../schemas/engineschema");
-const Transmission = require("../schemas/transmissionschema");
-const Tires = require("../schemas/tiresschema");
+const Exterior = require("../schemas/exteriorschema");
+const Tires = require("../schemas/tireschema");
 
 function jsonToMarkdown(jsonObject) {
   let markdown = "";
@@ -47,9 +47,7 @@ const requestreport = async (req, res) => {
   const battery = await Battery.findOne({ inspectionId: inspectionid });
   const brakes = await Brakes.findOne({ inspectionId: inspectionid });
   const engine = await Engine.findOne({ inspectionId: inspectionid });
-  const transmission = await Transmission.findOne({
-    inspectionId: inspectionid,
-  });
+  const exterior = await Exterior.findOne({ inspectionId: inspectionid });
   const tires = await Tires.findOne({ inspectionId: inspectionid });
 
   const filename = inspectionid;
@@ -59,7 +57,7 @@ const requestreport = async (req, res) => {
     battery: battery,
     brakes: brakes,
     engine: engine,
-    transmission: transmission,
+    exterior: exterior,
     tires: tires,
   };
 
