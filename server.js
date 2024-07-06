@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bodyParser = require('body-parser');
 
 const brakeRoutes = require("./routes/brakesroutes.js");
 const batteryRoutes = require("./routes/batteryroutes.js");
@@ -13,6 +14,7 @@ const exteriorRoutes = require("./routes/exteriorroutes.js");
 const gcsRoutes = require("./routes/cloudstorageroutes.js");
 const sampleInfoRoutes = require("./routes/sampleinforoutes.js");
 const reportRoutes = require("./routes/reportroute.js");
+const imageRoutes = require("./routes/imageRoutes.js");
 
 var fileupload = require('express-fileupload');
 const app = express();
@@ -68,6 +70,7 @@ app.use("/api/exterior", exteriorRoutes);
 app.use("/api/upload", gcsRoutes);
 app.use("/api/sampleinfo", sampleInfoRoutes);
 app.use("/api/report", reportRoutes);
+app.use("/api/image", imageRoutes);
 
 app.post("/testupload", function(req, res)
 {
