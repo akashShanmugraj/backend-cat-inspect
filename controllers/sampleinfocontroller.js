@@ -8,9 +8,11 @@ const Header = require("../schemas/headerschema");
 
 // get company name give cat-customer-id
 const getCompanyName = asyncHandler(async (req, res) => {
-  const customer = await Customer.findOne({ "cat_customer_id" : req.query.customer_id });
+  console.log(req.query.customer_id)
+  const customer = await Customer.findOne({'cat-customer-id': Number(req.query.customer_id)});
+  // const customer = await Customer.findOne({'cat-customer-id': 96517});
   if (customer) {
-    res.status(200).json({ company: customer.company_name });
+    res.status(200).json(customer);
   } else {
     res.status(404);
     throw new Error("Customer not found");
@@ -30,9 +32,10 @@ const getInspectorName = asyncHandler(async (req, res) => {
 
 // get truck model given truck id
 const getTruckModel = asyncHandler(async (req, res) => {
-  const truck = await Truck.findOne({ "truck-serial-number" : req.query.truck_id });
+  console.log(req.query.truck_id)
+  const truck = await Truck.findOne({"truck-serial-number": req.query.truck_id});
   if (truck) {
-    res.status(200).json({ model: truck.truck-model });
+    res.status(200).json(truck);
   } else {
     res.status(404);
     throw new Error("Truck not found");
